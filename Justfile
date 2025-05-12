@@ -13,7 +13,6 @@ assets:
 
 # generate manual
 doc: assets
-    typst compile docs/manual.typ docs/manual.pdf
 
 # run test suite
 test *args:
