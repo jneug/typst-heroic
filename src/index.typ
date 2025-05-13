@@ -1,3 +1,9 @@
+#let icon-sprites = (
+  solid: read("solid.svg"),
+  outline: read("outline.svg"),
+)
+
+
 #let icon-names = (
   "academic-cap",
   "adjustments-horizontal",

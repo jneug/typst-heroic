@@ -8,6 +8,7 @@ default:
 
 # generate assets
 assets:
+    python3 scripts/bundle.py
     typst compile assets/example.typ assets/example.png
     typst compile assets/icons.typ assets/icons.png
 

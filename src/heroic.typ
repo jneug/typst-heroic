@@ -1,18 +1,20 @@
-#import "index.typ": icon-names
-
-#let _asset_path = "./heroicons"
+#import "index.typ": icon-names, icon-sprites
 
 
-#let icon(name, height: 1em, solid: true, color: auto) = {
+#let icon(name, height: 1em, solid: true, color: none) = {
   if name not in icon-names {
     panic("Icon " + name + " does not exists. See https://heroicons.com/ for valid icon names.")
   }
 
-  let icon-path = _asset_path + "/" + if solid { "solid" } else { "outline" } + "/" + name + ".svg"
-  let icon-data = read(icon-path)
-  if color != auto {
-    icon-data = icon-data.replace("currentColor", color.to-hex())
+
+  let color = if color == none { "currentColor" } else { color.to-hex() }
+
+  let icon-data = if solid {
+    icon-sprites.solid + "<use href=\"#" + name + "\" fill=\"" + color + "\" />" + "</svg>"
+  } else {
+    icon-sprites.outline + "<use href=\"#" + name + "\" stroke=\"" + color + "\" />" + "</svg>"
   }
+
   image(
     bytes(icon-data),
     alt: name,
@@ -31,7 +33,7 @@
 
 
 #let list-icons() = grid(
-  columns: 3,
+  columns: 4,
   align: (right + horizon, center + horizon, left + horizon),
   inset: .5em,
   stroke: (y: .75pt),
@@ -39,6 +41,7 @@
     (
       [#{ i + 1 }.],
       icon(name, height: 10pt),
+      icon(name, height: 10pt, solid: false),
       raw(block: false, name),
     )
   }
