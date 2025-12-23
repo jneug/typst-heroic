@@ -1,4 +1,4 @@
-# heroic (v0.1.0)
+# heroic (v0.1.1)
 
 Use [Heroicons](https://heroicons.com/) (v2.2.0) in Typst.
 
@@ -10,7 +10,7 @@ any icon fonts and works out of the box with bundled SVG files.
 Import the package and use either the `#icon` or `#hi` commands.
 
 ```typst
-#import "@preview/heroic:0.1.0": icon, hi
+#import "@preview/heroic:0.1.1": icon, hi
 
 Use `#icon` to add icons as images as seen in @map-pin-icon.
 #figure(
