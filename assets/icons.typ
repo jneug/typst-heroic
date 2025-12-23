@@ -2,4 +2,4 @@
 
 #set page(width: auto, height: auto, margin: 1cm)
 
-#heroic.list-icons()
+#heroic.list-icons(columns: 2)

@@ -1,4 +1,4 @@
-#import "../src/heroic.typ": icon, hi
+#import "../src/heroic.typ": hi, icon
 
 #set page(width: auto, height: auto, margin: 1cm)
 
@@ -8,10 +8,5 @@ Use `#icon` to add icons as images as seen in @map-pin-icon.
   caption: [`map-pin` icon],
 ) <map-pin-icon>
 
-Use #text(fill: orange)[#hi("megaphone", solid: false) `#hi`] for context aware inline icons\
+#text(fill: orange)[Use #hi("megaphone", solid: false) `#hi` for context aware inline icons]\
 that adapt to the surrounding text.
-
-
-#hi("megaphone") #hi("megaphone", solid: false)
-
-#hi("microphone") #hi("microphone", solid: false)
