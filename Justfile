@@ -6,9 +6,12 @@ export TYPST_ROOT := root
 default:
     @just --list --unsorted
 
+# bundle new heroicons version
+bundle VERSION *args:
+    python3 scripts/bundle.py {{ VERSION }} {{ args }}
+
 # generate assets
 assets:
-    python3 scripts/bundle.py
     typst compile assets/example.typ assets/example.png
     typst compile assets/icons.typ assets/icons.png
 
