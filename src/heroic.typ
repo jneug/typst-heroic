@@ -32,14 +32,15 @@
 }
 
 
-#let list-icons() = grid(
-  columns: 4,
-  align: (right + horizon, center + horizon, left + horizon),
+#let list-icons(sort: k => k, columns: 1, ..grid-args) = grid(
+  columns: 4 * columns,
+  align: (right + horizon, center + horizon, center + horizon, left + horizon),
   inset: .5em,
   stroke: (y: .75pt),
-  ..for (i, name) in icon-names.enumerate() {
+  ..grid-args,
+  ..for (i, name) in icon-names.sorted(key: sort).enumerate() {
     (
-      [#{ i + 1 }.],
+      grid.cell(stroke: if columns > 1 and calc.rem(i, columns) > 0 { (left: .75pt) } + (y: .75pt))[#{ i + 1 }.],
       icon(name, height: 10pt),
       icon(name, height: 10pt, solid: false),
       raw(block: false, name),
